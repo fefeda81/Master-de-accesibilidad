@@ -33,35 +33,41 @@
         </aside>
 
         <main id="main-content" tabindex="-1">
-            <section>
-                <h1>Formulario de inscripción</h1>
-                <h2>Completa el formulario</h2>
-            </section>
+    <section>
+        <h1>Formulario de inscripción</h1>
+        <h2>Completa el formulario</h2>
+    </section>
 
-            <form action="/index.html" autocomplete="on" id="registration-form">
-                <div class="form-group">
-                    <label for="name">Nombre y apellidos:</label>
-                    <input type="text" id="name" maxlength="50" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Correo electrónico:</label>
-                    <input type="email" id="email" maxlength="30" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="phone">Número de teléfono:</label>
-                    <input type="tel" id="phone" maxlength="20" pattern="[0-9]{9}" 
-                           title="Solo se permiten números (9 dígitos)" required>
-                </div>
+    <form action="https://milliondollarhomepage.com/" autocomplete="on" id="registration-form">
+        <div class="form-group">
+            <label for="name">Nombre y apellidos:</label>
+            <input type="text" id="name" maxlength="50" required placeholder=" ">
+        </div>
+        
+        <div class="form-group">
+            <label for="email">Correo electrónico:</label>
+            <input type="email" id="email" maxlength="30" required placeholder=" ">
+        </div>
+        
+        <div class="form-group">
+            <label for="phone">Número de teléfono:</label>
+            <input type="tel" id="phone" maxlength="20" pattern="[0-9]{9}" 
+                   title="Solo se permiten números (9 dígitos)" required placeholder=" ">
+        </div>
 
-                <div class="form-success-banner" aria-live="polite">
-                    ¡Excelente! Todos los campos son correctos. Ya puedes enviar el formulario.
-                </div>
-                
-                <input type="submit" value="Enviar">
-            </form>            
-        </main>
+        <div class="form-success-banner" aria-live="polite">
+            ¡Excelente! Todos los campos son correctos. Ya puedes enviar el formulario.
+        </div>
+
+        <input type="submit" value="Enviar">
+
+        <div class="toast-success" role="alert">
+            ✅ ¡Formulario enviado con éxito!
+        </div>
+        
+    
+    </form>            
+</main>
 
         <aside class="decoracion-lateral" aria-hidden="true">
             <img src="imagen-derecha.jpg" alt="" class="img-decorativa">
