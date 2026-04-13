@@ -1,0 +1,329 @@
+/* --- CONFIGURACIÓN GLOBAL --- */
+:root {
+    font-family: 'Atkinson Hyperlegible', Arial, sans-serif;
+    background-color: #f5f5f5;
+    color: #000;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+}
+
+/* ENFOQUE ACCESIBLE GLOBAL */
+*:focus {
+    outline: 3px solid #f3C11b; /* Color dorado pedido */
+    outline-offset: 2px;
+}
+
+/* CLASE AUXILIAR PARA ACCESIBILIDAD */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+/* --- SKIP LINK --- */
+.skip-link {
+    position: absolute;
+    top: -100px;
+    left: 10px;
+    background: #222;
+    color: #fff;
+    padding: 10px;
+    z-index: 1000;
+    text-decoration: none;
+}
+
+.skip-link:focus {
+    top: 10px;
+    background-color: #f3C11b;
+    color: #000;
+    outline: none;
+}
+
+/* --- HEADER FLEXIBLE --- */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    border-bottom: 2px solid #ccc;
+    background-color: white;
+}
+
+.header-left, .header-center, .header-right {
+    flex: 1; 
+    display: flex;
+}
+
+.header-left { justify-content: flex-start; }
+.header-center { justify-content: center; }
+.header-right { justify-content: flex-end; }
+
+.header-center p {
+    margin: 0;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+header ul {
+    display: flex;
+    list-style: none;
+    gap: 1.2rem;
+    margin: 0;
+    padding: 0;
+}
+
+header a {
+    text-decoration: none;
+    color: #0000ee;
+}
+
+/* --- CONTENIDO PRINCIPAL --- */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    text-align: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    width: 100%;
+    max-width: 25rem; /* Corregido de px a rem */
+    text-align: left;
+    margin-top: 1.5rem;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+}
+
+
+input[type="text"], input[type="email"], input[type="tel"] {
+    padding: 0.5rem;
+    font-size: 1rem;
+}
+
+input[type="submit"] {
+    cursor: pointer;
+    background-color: #000;
+    color: white;
+    padding: 0.8rem;
+    border: none;
+    margin-top: 0.5rem;
+    font-weight: bold;
+}
+
+/* --- SECCIÓN DE CARDS --- */
+.cards-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 1.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 2.5rem 0;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    padding: 1.5rem;
+    min-width: 15rem;
+    max-width: 20rem;
+    flex: 1 1 18rem;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: left;
+}
+
+/* Cambio de color cuando el usuario pasa el ratón */
+.card a:hover {
+    color: #000; /* Se vuelve negro */
+    text-decoration: underline; /* Aparece un subrayado para indicar que es clickeable */
+}
+
+.card-heading {
+    margin: 0 0 1rem 0;
+    font-size: 1.25rem;
+}
+
+/* Estilo específico para el enlace dentro de las tarjetas */
+.card a {
+    text-decoration: none;
+    color: #0000ee; /* Un tono dorado oscuro que tiene buen contraste sobre blanco */
+    font-weight: bold;
+    margin-top: 1rem;
+    display: inline-block;
+}
+
+/* Color cuando el usuario ya ha visitado el enlace (opcional) */
+.card a:visited {
+    color: #8a5a00; /* Un tono más apagado para indicar que ya se entró */
+}
+
+/* --- ESTADOS DE VALIDACIÓN --- */
+
+/* Ocultamos los mensajes por defecto */
+.error-msg, .success-msg {
+    display: none;
+    font-size: 0.85rem;
+    margin-top: 4px;
+}
+
+/* 1. ESTADO INVÁLIDO: Cuando el usuario escribe y no cumple los requisitos */
+/* Usamos :placeholder-shown para que no salga el error cuando el campo está vacío al inicio */
+input:not(:placeholder-shown):invalid {
+    border: 2px solid #b32d2e; /* Rojo accesible */
+}
+
+input:not(:placeholder-shown):invalid ~ .error-msg {
+    display: block;
+    color: #b32d2e;
+}
+
+/* 2. ESTADO VÁLIDO: Cuando el contenido cumple con el tipo y el patrón */
+input:not(:placeholder-shown):valid {
+    border: 2px solid #2e7d32; /* Verde accesible */
+}
+
+input:not(:placeholder-shown):valid ~ .success-msg {
+    display: block;
+    color: #2e7d32;
+}
+
+input:not(:placeholder-shown):invalid {
+    border: 3px solid #b32d2e; /* Borde más grueso para el error */
+}
+
+input:not(:placeholder-shown):valid {
+    border: 1px solid #2e7d32; /* Borde normal para el éxito */
+}
+
+/* Ajuste para el foco */
+input:focus {
+    outline: 3px solid #f3C11b; /* Tu color dorado de enfoque */
+}
+
+/* Estilo para los contenedores */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+/* --- FOOTER --- */
+footer {
+    padding: 2rem;
+    border-top: 2px solid #ccc;
+    margin-top: 2.5rem;
+    text-align: center;
+}
+
+/* --- MENSAJE DE ÉXITO GLOBAL --- */
+
+.form-success-banner {
+    display: none; /* Oculto por defecto */
+    background-color: #e8f5e9; /* Verde muy claro de fondo */
+    color: #1b5e20;            /* Verde oscuro accesible para el texto */
+    padding: 1rem;
+    border: 2px solid #2e7d32;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* LOGICA: 
+   Si el formulario NO tiene campos inválidos 
+   Y el último campo (teléfono) ya no muestra el placeholder (significa que se ha escrito algo)
+*/
+#registration-form:not(:has(input:invalid)):has(#phone:not(:placeholder-shown)) .form-success-banner {
+    display: block;
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* Animación suave para que aparezca */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Estilo para el botón cuando todo está listo */
+#registration-form:not(:has(input:invalid)):has(#phone:not(:placeholder-shown)) input[type="submit"] {
+    background-color: #2e7d32;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+/* Contenedor que organiza las 3 columnas */
+.layout-principal {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr; /* Lateral, Centro (más ancho), Lateral */
+    align-items: start;
+    gap: 20px;
+    background-color: #f5f5f5; /* Fondo gris claro que ya tenías */
+    min-height: 80vh;
+}
+
+/* Estilo para los laterales */
+.decoracion-lateral {
+    display: flex;
+    justify-content: center;
+    padding-top: 5rem; /* Ajusta la altura a la que aparecen */
+}
+
+.img-decorativa {
+    width: 100%;
+    max-width: 200px; /* Evita que sean gigantes */
+    height: auto;
+    opacity: 0.6; /* Hace que sean sutiles para no distraer */
+    filter: grayscale(50%); /* Opcional: un toque más serio y sobrio */
+    border-radius: 12px;
+}
+
+/* IMPORTANTE: En móviles las quitamos para que el formulario ocupe todo */
+@media (max-width: 900px) {
+    .layout-principal {
+        grid-template-columns: 1fr;
+    }
+    .decoracion-lateral {
+        display: none;
+    }
+}
+
+/* Ajuste para que tu main no tenga márgenes raros ahora */
+main {
+    width: 100%;
+    padding: 2rem 0;
+}
+
+.btn-perfil {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: #000; /* O el color que prefieras */
+    color: white !important;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.btn-perfil:hover {
+    background-color: #333;
+}
