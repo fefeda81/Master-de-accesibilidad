@@ -13,7 +13,7 @@ body {
 
 /* ENFOQUE ACCESIBLE GLOBAL */
 *:focus {
-    outline: 3px solid #f3C11b; /* Color dorado pedido */
+    outline: 3px solid #e6490b; /* Color dorado pedido */
     outline-offset: 2px;
 }
 
@@ -43,7 +43,7 @@ body {
 
 .skip-link:focus {
     top: 10px;
-    background-color: #f3C11b;
+    background-color: #e6490b;
     color: #000;
     outline: none;
 }
@@ -217,7 +217,7 @@ input:not(:placeholder-shown):valid {
 
 /* Ajuste para el foco */
 input:focus {
-    outline: 3px solid #f3C11b; /* Tu color dorado de enfoque */
+    outline: 3px solid #e6490b; /* Tu color dorado de enfoque */
 }
 
 /* Estilo para los contenedores */
